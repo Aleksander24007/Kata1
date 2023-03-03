@@ -9,16 +9,17 @@ public class Util {
 
     private static final String nameUser = "root";
     private static final String password = "root";
-    private static final String url = "jdbc:mysql://localhost:3306/mysql";
+    private static final String url = "jdbc:mysql://localhost:3306/katabasa";
     private  static Connection connection;
 
-    static {
+    public static Connection getConnection()  {
         try {
             connection = DriverManager.getConnection(url,nameUser,password);
         } catch (SQLException e) {
             e.printStackTrace();
             throw new RuntimeException(e);
         }
+        return connection;
     }
 
 }
